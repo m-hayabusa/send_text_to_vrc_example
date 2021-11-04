@@ -1,0 +1,26 @@
+{
+  "name": "rss_to_vrc",
+  "version": "0.0.1",
+  "main": "built/main.js",
+  "author": "mewl hayabusa",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "cd built && node main.js",
+    "vrceve": "cd built && node vrceve.js",
+    "jma": "cd built && node --experimental-json-modules jma.js",
+    "build": "tsc",
+    "clean": "rm built/*"
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.5",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "googleapis": "^88.2.0",
+    "lorem-ipsum": "^2.0.4",
+    "node-fetch": "^3.0.0",
+    "rss-parser": "^3.12.0",
+    "send_text_to_vrc": "https://github.com/m-hayabusa/send_text_to_vrc.git"
+  }
+}

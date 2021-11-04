@@ -1,0 +1,5 @@
+node_modules/
+built/
+secret.json
+src/vrceve.ts
+yarn-error.log
