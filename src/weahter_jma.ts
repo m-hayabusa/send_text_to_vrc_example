@@ -5,7 +5,7 @@ const Forecast_telops = new Map([[100, "晴"], [101, "晴時々曇"], [102, "晴
 import { Convert as forecastConveter } from "./forecastConverter.js";
 
 export async function weahter_jma(files: Array<send_text_to_vrc.File>) {
-    let file_FileList = new send_text_to_vrc.File("jma.go.jp/forecast", ["officeCode", "name", "filename_Forecast", "filename_RainPops", "filename_Weekly"]);
+    let file_FileList = new send_text_to_vrc.File("jma.go.jp/forecast", ["officeCode", "name", "reportDatetime" ,"filename_Forecast", "filename_RainPops", "filename_Weekly"]);
 
     const res = await fetch("https://www.jma.go.jp/bosai/forecast/data/forecast/010000.json");
     const data = forecastConveter.toForecast(await res.text());
@@ -83,7 +83,7 @@ export async function weahter_jma(files: Array<send_text_to_vrc.File>) {
         files.push(file_Weekly);
 
         // console.log([element.officeCode, element.name, file_Forecast.Filename, file_RainPops.Filename]);
-        file_FileList.push([element.officeCode, element.name, file_Forecast.Filename, file_RainPops.Filename, file_Weekly.Filename]);
+        file_FileList.push([element.officeCode, element.name, element.srf.reportDatetime.toISOString(), file_Forecast.Filename, file_RainPops.Filename, file_Weekly.Filename]);
     });
 
     files.push(file_FileList);
