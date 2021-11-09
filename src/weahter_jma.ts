@@ -48,6 +48,7 @@ export async function weahter_jma(files: Array<send_text_to_vrc.File>) {
 
             // 0のとき後ろから2,3番目
             // 1のとき後ろから0,1番目
+            // 当日の最低気温のとこ意味がわからん
 
             let itt = (temp.timeDefines.length - 1) - (1 - i) * 2;
             // console.log(i, itt);
@@ -56,7 +57,7 @@ export async function weahter_jma(files: Array<send_text_to_vrc.File>) {
                     if (itt >= 0)
                         maxTemp = temp.areas.temps[itt]
 
-                    if (itt >= 1)
+                    if (itt >= 1 && temp.timeDefines[itt - 1].toString() < temp.timeDefines[itt].toString())
                         minTemp = temp.areas.temps[itt - 1]
                 }
             }
