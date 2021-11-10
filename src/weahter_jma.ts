@@ -57,7 +57,7 @@ export async function weahter_jma(files: Array<send_text_to_vrc.File>) {
                     if (itt >= 0)
                         maxTemp = temp.areas.temps[itt]
 
-                    if (itt >= 1 && temp.timeDefines[itt - 1].toString() < temp.timeDefines[itt].toString())
+                    if (itt >= 1 && temp.timeDefines[itt - 1] < temp.timeDefines[itt])
                         minTemp = temp.areas.temps[itt - 1]
                 }
             }
